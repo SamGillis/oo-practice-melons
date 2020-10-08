@@ -28,7 +28,7 @@ class MelonType(object):
 
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
-
+        self.code = new_code
         # Fill in the rest
 
 
@@ -38,7 +38,23 @@ def make_melon_types():
     all_melon_types = []
 
     # Fill in the rest
+    musk = MelonType('musk', 1998, 'green', True, True, 
+                 'Muskmelon')
+    cas = MelonType('cas', 2003, 'orange', False, False, 'Casaba')    
+    cren = MelonType('cren', 1996, 'green', False, False, 'Crenshaw') 
+    yw = MelonType('yw', 2013, 'yellow', False, True, 'Yellow Watermelon')
 
+    musk.add_pairing('mint')
+    cas.add_pairing('mint')
+    cas.add_pairing('strawberries')
+    cren.add_pairing('proscuitto')
+    yw.add_pairing('ice cream')
+
+    all_melon_types.append(musk)
+    all_melon_types.append(cas)
+    all_melon_types.append(cren)
+    all_melon_types.append(yw)
+    
     return all_melon_types
 
 def print_pairing_info(melon_types):
