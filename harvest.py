@@ -152,6 +152,22 @@ def get_sellability_report(melons):
 
         print(f'Harvested by {melon.harvested_by} from Field {melon.field} ({sellable})')
 
+def make_melons_from_file(file_path, melon_types):
+    """Takes a file and creates a melon object for each line"""
+    melons = []
+    melons_by_id = make_melon_type_lookup(melon_types)
+    counter = 0
+    the_file = open(file_path)
+    for line in the_file:
+        line = line.rstrip()
+        words = line.split(' ')
+        melon = 'melon_' + str(counter)
+        melon = Melon(melons_by_id[words[5]], int(words[1]), 
+            int(words[3]), int(words[11]), words[8])
+        melons.append(melon) 
+        counter += 1
+
+    return melons
 
 
 if __name__ == '__main__':
