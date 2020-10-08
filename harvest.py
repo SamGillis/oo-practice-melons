@@ -106,11 +106,55 @@ def make_melons(melon_types):
     """Returns a list of Melon objects."""
 
     # Fill in the rest
+    melons_picked = []
+    melons_by_id = make_melon_type_lookup(melon_types)
+
+    melon_1 = Melon(melons_by_id['yw'], 8, 7, 2, 'Sheila')
+    melons_picked.append(melon_1)
+
+    melon_2 = Melon(melons_by_id['yw'], 3, 4, 2, 'Sheila')
+    melons_picked.append(melon_2)
+
+    melon_3 = Melon(melons_by_id['yw'], 9, 8, 3, 'Sheila')
+    melons_picked.append(melon_3)
+
+    melon_4 = Melon(melons_by_id['cas'], 10, 6, 35, 'Sheila')
+    melons_picked.append(melon_4)
+
+    melon_5 = Melon(melons_by_id['cren'], 8, 9, 35, 'Michael')
+    melons_picked.append(melon_5)
+
+    melon_6 = Melon(melons_by_id['cren'], 8, 2, 35, 'Michael')
+    melons_picked.append(melon_6)
+
+    melon_7 = Melon(melons_by_id['cren'], 2, 3, 4, 'Michael')
+    melons_picked.append(melon_7)
+
+    melon_8 = Melon(melons_by_id['musk'], 6, 7, 4, 'Michael')
+    melons_picked.append(melon_8)
+
+    melon_9 = Melon(melons_by_id['yw'], 7, 10, 3, 'Sheila')
+    melons_picked.append(melon_9)    
+
+    return melons_picked
+
 
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
     # Fill in the rest 
+    for melon in melons:
+        if melon.is_sellable():
+            sellable = "CAN BE SOLD"
+        else:
+            sellable = "NOT SELLABLE"
+
+        print(f'Harvested by {melon.harvested_by} from Field {melon.field} ({sellable})')
 
 
 
+if __name__ == '__main__':
+
+    melon_types = make_melon_types()
+    melon_lookup = make_melon_type_lookup
+    melons = make_melons(melon_types)
