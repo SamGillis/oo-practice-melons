@@ -3,14 +3,15 @@
 ############
 
 
-class MelonType(object):
+class MelonType:
     """A species of melon at a melon farm."""
 
     def __init__(self, code, first_harvest, color, is_seedless, is_bestseller, 
                  name):
         """Initialize a melon."""
 
-        self.pairings = []
+        #Creating Instances Attributes
+        self.pairings = [] 
         self.code = code
         self.first_harvest = first_harvest
         self.color = color
